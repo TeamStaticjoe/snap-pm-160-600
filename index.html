@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.sd-pm-160-600 {
+				width: 160px;
+				height: 600px;
+				background: rgb(212, 51, 49);
+				background: linear-gradient(
+					180deg,
+					rgba(212, 51, 49, 1) 0%,
+					rgba(133, 25, 34, 1) 100%
+				);
+				overflow: hidden;
+				position: relative;
+				display: flex;
+			}
+
+			.powerfully {
+				opacity: 0;
+				position: absolute;
+				left: 15px;
+				top: 120px;
+				width: 130px;
+				height: 126px;
+			}
+
+			.lock-up {
+				position: absolute;
+				width: 127px;
+				height: 87px;
+				bottom: -90px;
+				left: 16px;
+			}
+
+			.button {
+				opacity: 0;
+				position: absolute;
+				z-index: 20;
+				width: 78px;
+				height: 24px;
+				bottom: 44px;
+				left: 41px;
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	</head>
+	<body>
+		<div class="sd-pm-160-600" width="160" height="600">
+			<img
+				class="powerfully"
+				src="https://assets.codepen.io/1253946/pm-160-600-powerfully-moving.png"
+				width="130"
+				height="126"
+				alt=""
+			/>
+
+			<img
+				class="lock-up"
+				src="https://assets.codepen.io/1253946/pm-160-600-lock-up.png"
+				height="87"
+				width="127"
+				alt=""
+			/>
+
+			<img
+				class="button"
+				src="https://assets.codepen.io/1253946/pm-160-600-button.png"
+				width="78"
+				height="24"
+				alt=""
+			/>
+		</div>
+	</body>
+	<script>
+		lockUp = document.querySelector(".lock-up")
+		button = document.querySelector(".button")
+		powerfullyMask = document.querySelector(".powerfully-mask")
+		powerfully = document.querySelector(".powerfully") //118px final top 87px diff
+		moving = document.querySelector(".moving")
+		mask = document.querySelector(".svgmask1-rect")
+
+		let tl = gsap.timeline()
+
+		tl.set(powerfully, { autoAlpha: 0 })
+			.set(button, { autoAlpha: 0 })
+
+			.to(powerfully, { autoAlpha: 1, duration: 0.75 })
+			// .to(powerfullyMask, {y:20, duration:2})
+			// .to(powerfully, {y:-8, duration:.5})
+			// .to(moving, {y:8, duration:.5}, "<")
+			// .to(powerfully, {y:-20, duration:2})
+			// .to(powerfully, {y:-32, duration:.75, ease: "power4.inOut"}, "<1")
+			// .to(moving, {y:52, duration:.75, ease: "power4.inOut"}, "<")
+			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, "<.75")
+			.to(lockUp, { y: -180, duration: 0.5, ease: "power1.inOut" }, "-=.75")
+	</script>
+</html>
