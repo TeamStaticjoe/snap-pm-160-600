@@ -73,26 +73,35 @@
 		</div>
 	</body>
 	<script>
-		lockUp = document.querySelector(".lock-up")
-		button = document.querySelector(".button")
-		powerfullyMask = document.querySelector(".powerfully-mask")
-		powerfully = document.querySelector(".powerfully") //118px final top 87px diff
-		moving = document.querySelector(".moving")
-		mask = document.querySelector(".svgmask1-rect")
+		const sdPowerfullyMoving160x600Animate = () => {
+			const lockUp = document.querySelector(".sd-pm-160-600 .lock-up")
+			const button = document.querySelector(".sd-pm-160-600 .button")
+			const powerfullyMask = document.querySelector(
+				".sd-pm-160-600 .powerfully-mask"
+			)
+			const powerfully = document.querySelector(".sd-pm-160-600 .powerfully") //118px final top 87px diff
+			const moving = document.querySelector(".sd-pm-160-600 .moving")
+			const mask = document.querySelector(".sd-pm-160-600 .svgmask1-rect")
 
-		let tl = gsap.timeline()
+			const tl = gsap.timeline()
 
-		tl.set(powerfully, { autoAlpha: 0 })
-			.set(button, { autoAlpha: 0 })
+			tl.set(powerfully, { autoAlpha: 0 })
+				.set(button, { autoAlpha: 0 })
 
-			.to(powerfully, { autoAlpha: 1, duration: 0.75 })
-			// .to(powerfullyMask, {y:20, duration:2})
-			// .to(powerfully, {y:-8, duration:.5})
-			// .to(moving, {y:8, duration:.5}, "<")
-			// .to(powerfully, {y:-20, duration:2})
-			// .to(powerfully, {y:-32, duration:.75, ease: "power4.inOut"}, "<1")
-			// .to(moving, {y:52, duration:.75, ease: "power4.inOut"}, "<")
-			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, "<.75")
-			.to(lockUp, { y: -180, duration: 0.5, ease: "power1.inOut" }, "-=.75")
+				.to(powerfully, { autoAlpha: 1, duration: 0.75 })
+				// .to(powerfullyMask, {y:20, duration:2})
+				// .to(powerfully, {y:-8, duration:.5})
+				// .to(moving, {y:8, duration:.5}, "<")
+				// .to(powerfully, {y:-20, duration:2})
+				// .to(powerfully, {y:-32, duration:.75, ease: "power4.inOut"}, "<1")
+				// .to(moving, {y:52, duration:.75, ease: "power4.inOut"}, "<")
+				.to(
+					button,
+					{ autoAlpha: 1, duration: 0.5, ease: "power1.inOut" },
+					"<.75"
+				)
+				.to(lockUp, { y: -180, duration: 0.5, ease: "power1.inOut" }, "-=.75")
+		}
+		sdPowerfullyMoving160x600Animate()
 	</script>
 </html>
