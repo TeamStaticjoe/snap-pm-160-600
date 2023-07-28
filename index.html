@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="snap-gaming-160-600" content="width=160,height=600" />
+		<script type="text/javascript">
+			var clickTag = "https://www.qualcomm.com/de/snapdragon#gaming"
+		</script>
 		<style>
 			.sd-pm-160-600 {
 				width: 160px;
@@ -46,7 +50,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 	</head>
 	<body>
-		<div class="sd-pm-160-600" width="160" height="600">
+		<a
+			href="javascript:window.open(window.clickTag)"
+			class="sd-pm-160-600"
+			width="160"
+			height="600"
+		>
 			<img
 				class="powerfully"
 				src="https://assets.codepen.io/1253946/pm-160-600-powerfully-moving.png"
@@ -70,7 +79,7 @@
 				height="24"
 				alt=""
 			/>
-		</div>
+		</a>
 	</body>
 	<script>
 		const sdPowerfullyMoving160x600Animate = () => {
@@ -89,12 +98,6 @@
 				.set(button, { autoAlpha: 0 })
 
 				.to(powerfully, { autoAlpha: 1, duration: 0.75 })
-				// .to(powerfullyMask, {y:20, duration:2})
-				// .to(powerfully, {y:-8, duration:.5})
-				// .to(moving, {y:8, duration:.5}, "<")
-				// .to(powerfully, {y:-20, duration:2})
-				// .to(powerfully, {y:-32, duration:.75, ease: "power4.inOut"}, "<1")
-				// .to(moving, {y:52, duration:.75, ease: "power4.inOut"}, "<")
 				.to(
 					button,
 					{ autoAlpha: 1, duration: 0.5, ease: "power1.inOut" },
